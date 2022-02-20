@@ -18,6 +18,12 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 	ObjectMapper mapper;
 	
 	
+	@GetMapping("/status")
+	public String getStatus() {
+		return "We are up and running";
+	}
+	
+	
 	@GetMapping("/cars")
 	public String getCars() throws JsonProcessingException {
 		
@@ -38,6 +44,8 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 		
 		return car;
 	}
+	
+	
 
 
 }

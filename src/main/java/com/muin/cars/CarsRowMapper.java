@@ -11,14 +11,14 @@ public class CarsRowMapper implements RowMapper<Car> {
 	public Car mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Car car = new Car();
 		car.id = rs.getInt("idcars");
-		car.make = rs.getString("Make");
-		car.model = rs.getString("Model");
-		car.carPackage = rs.getString("CarPackage");
-		car.color = rs.getString("Color");
-		car.year = rs.getInt("Year");
-		car.category = rs.getString("Category");
-		car.mileage = rs.getInt("Mileage");
-		car.price = rs.getInt("Price");
+		car.make = rs.getString("make");
+		car.model = rs.getString("model");
+		car.carPackage = rs.getString("carpackage");
+		car.color = rs.getString("color");
+		car.year = rs.getInt("year");
+		car.category = rs.getString("category");
+		car.mileage = rs.getInt("mileage");
+		car.price = rs.getInt("price");
         return car;
 	}
 }

@@ -1,22 +1,21 @@
-version: '3'
 services:
-  mysql-standalone:
-    image: 'mysql:5.7'
-    environment:
-    - MYSQL_ROOT_PASSWORD:password
-    - MY_SQL_DATABASE:dealership
+  mylocaldb:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment: 
+      - MYSQL_ROOT_PASSWORD=password
     ports:
-      - '3307:3306'
-  springboot-docker-container:
-    image: springboot-docker-container
+      - "3307:3306"
+    volumes:
+      - "./init:/docker-entrypoint-initdb.d"
+  car-dealership:
+    image: car-dealership
     ports:
-      - '8080:8080'
+      - "8085:8085"
     environment:
-      SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/dealership
-      SPRING_DATASOURCE_USERNAME:root
-      SPRING_DATASOURCE_PASSWORD:password
-    build:
-      context:"./"
-      dockerfile:"Dockerfile"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mylocaldb:3306/dealership?autoReconnect=true&useSSL=false"
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: "password"
+    build: .
     depends_on:
-      - mysql-standalone
+      - mylocaldb

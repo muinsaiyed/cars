@@ -1,11 +1,1 @@
-CREATE TABLE `cars` (
-`idcars` INT,
-`Make` VARCHAR,
-`Model` VARCHAR,
-`CarPackage` VARCHAR,
-`Color` VARCHAR,
-`Year` INT,
-`Category` VARCHAR, 
-`Mileage` INT, 
-`Price` INT, 
-PRIMARY KEY (`idcars`));
+CREATE TABLE `dealership`.`cars` (`idcars` INT, `Make` VARCHAR(64), `Model` VARCHAR(64), `CarPackage` VARCHAR(64), `Color` VARCHAR(64), `Year` INT, `Category` VARCHAR(64),  `Mileage` INT,  `Price` INT,  PRIMARY KEY (`idcars`));

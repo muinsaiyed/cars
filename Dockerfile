@@ -1,4 +1,4 @@
-FROM openjdk:8
-ADD target/cars-0.0.1-SNAPSHOT.jar cars-0.0.1-SNAPSHOT
-EXPOSE 8080
-ENTRYPOINT ["java","-jar","cars-0.0.1-SNAPSHOT.jar"]
+FROM openjdk:12
+ADD target/carsApp.jar carsApp.jar
+EXPOSE 8085
+ENTRYPOINT ["java","-jar","carsApp.jar"]
